@@ -1,0 +1,32 @@
+{
+    "name": "wormhit/jQueryMobileMenu",
+    "description": "zf2 module overrides \Zend\View\Helper\Navigation\Menu to match jQuery mobile navigation",
+    "license": "Apache-2.0",
+    "type": "library",
+    "keywords": [
+        "jQueryMobile",
+        "jQuery",
+        "mobile"
+        "zf2",
+        "zend framework 2"
+    ],
+    "homepage": "https://github.com/wormhit/jQueryMobileMenu",
+    "authors": [
+        {
+            "name": "Andrejs Stepanovs",
+            "email": "andrejsstepanovs@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "zendframework/zendframework": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "jQueryMobileMenu": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
