@@ -2,7 +2,10 @@
 namespace jQueryMobileMenu;
 
 /**
+ * Class Module
  * Module overwrite navigation html to match jQuery mobile menu attributes.
+ *
+ * @package jQueryMobileMenu
  *
  * Set navigation config with a_params array
  * 'navigation' => array(
@@ -21,10 +24,10 @@ namespace jQueryMobileMenu;
 class Module
 {
     /**
-     * @param Zend\Mvc\MvcEvent $mvcEvent
+     * @param \Zend\Mvc\MvcEvent $mvcEvent
      * @return void
      */
-    public function onBootstrap($mvcEvent)
+    public function onBootstrap(\Zend\Mvc\MvcEvent $mvcEvent)
     {
         /** @var $application \Zend\Mvc\Application */
         $application = $mvcEvent->getApplication();
@@ -36,6 +39,7 @@ class Module
         $viewHelperManager = $serviceManager->get('ViewHelperManager');
 
         // overwrite \Zend\View\Helper\Navigation\Menu
+        /** @var \Zend\View\Helper\Navigation\PluginManager $pluginManager */
         $pluginManager = $viewHelperManager->get('Navigation')->getPluginManager();
         $pluginManager->setInvokableClass('Menu', 'jQueryMobileMenu\View\Helper\Navigation\Menu');
     }
@@ -47,7 +51,7 @@ class Module
     {
         return array(
             'Zend\Loader\ClassMapAutoloader' => array(
-                __DIR__ . '/autoload_classmap.php',
+                __DIR__ . '/src/' . __NAMESPACE__ . '/autoload_classmap.php',
             ),
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(

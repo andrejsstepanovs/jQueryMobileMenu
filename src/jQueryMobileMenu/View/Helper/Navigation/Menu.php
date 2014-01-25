@@ -2,7 +2,6 @@
 
 namespace jQueryMobileMenu\View\Helper\Navigation;
 
-
 /**
  * Helper for rendering menus from navigation containers
  */
@@ -14,8 +13,8 @@ class Menu extends \Zend\View\Helper\Navigation\Menu
      *
      * Overrides {@link AbstractHelper::htmlify()}.
      *
-     * @param  AbstractPage $page        page to generate HTML for
-     * @param  bool         $escapeLabel Whether or not to escape the label
+     * @param  \Zend\Navigation\Page\Mvc $page        page to generate HTML for
+     * @param  bool                      $escapeLabel Whether or not to escape the label
      * @return string
      */
     public function htmlify(\Zend\Navigation\Page\Mvc $page, $escapeLabel = true, $addClassToListItem = false)
