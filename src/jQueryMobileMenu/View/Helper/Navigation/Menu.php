@@ -2,10 +2,17 @@
 
 namespace jQueryMobileMenu\View\Helper\Navigation;
 
+use \Zend\Navigation\Page\AbstractPage;
+use \Zend\View\Helper\Navigation\Menu as ZendNavigationHelper;
+
 /**
+ * Class Menu
+ *
  * Helper for rendering menus from navigation containers
+ *
+ * @package jQueryMobileMenu\View\Helper\Navigation
  */
-class Menu extends \Zend\View\Helper\Navigation\Menu
+class Menu extends ZendNavigationHelper
 {
     /**
      * Returns an HTML string containing an 'a' element for the given page if
@@ -17,7 +24,7 @@ class Menu extends \Zend\View\Helper\Navigation\Menu
      * @param  bool                      $escapeLabel Whether or not to escape the label
      * @return string
      */
-    public function htmlify(\Zend\Navigation\Page\Mvc $page, $escapeLabel = true, $addClassToListItem = false)
+    public function htmlify(AbstractPage $page, $escapeLabel = true, $addClassToListItem = false)
     {
         // get label and title for translating
         $label = $page->getLabel();
@@ -65,8 +72,9 @@ class Menu extends \Zend\View\Helper\Navigation\Menu
 
         $html = '<' . $element . $this->htmlAttribs($attribs) . '>';
         if ($escapeLabel === true) {
-            $escaper = $this->view->plugin('escapeHtml');
-            $html .= $escaper($label);
+            /** @var \Zend\View\Helper\EscapeHtml $escapeHtmlHelper */
+            $escapeHtmlHelper = $this->view->plugin('escapeHtml');
+            $html .= $escapeHtmlHelper($label);
         } else {
             $html .= $label;
         }
