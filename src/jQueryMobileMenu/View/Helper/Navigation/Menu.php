@@ -55,7 +55,8 @@ class Menu extends ZendNavigationHelper
         $href = $page->getHref();
         if ($href) {
             $element = 'a';
-            $attribs['href'] = $href;
+            $attribs['href']   = $href;
+            $attribs['id']     = 'nav' . str_replace('/', '-', $href);
             $attribs['target'] = $page->getTarget();
         } else {
             $element = 'span';
